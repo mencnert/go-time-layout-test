@@ -1,8 +1,6 @@
 package timeformat
 
 import (
-	"fmt"
-	"log"
 	"testing"
 	"time"
 
@@ -954,19 +952,19 @@ func TestIsoWeek(t *testing.T) {
 	}
 }
 
-func TestStrfTime(t *testing.T) {
-	tt, err := timefmt.Parse("2020/07/24 09:07:29", "%Y/%m/%d %H:%M:%S")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(tt) // 2020-07-24 09:07:29 +0000 UTC
+// func TestStrfTime(t *testing.T) {
+// 	tt, err := timefmt.Parse("2020/07/24 09:07:29", "%Y/%m/%d %H:%M:%S")
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	fmt.Println(tt) // 2020-07-24 09:07:29 +0000 UTC
 
-	str := timefmt.Format(tt, "%Y/%m/%d %H:%M:%S")
-	fmt.Println(str) // 2020/07/24 09:07:29
+// 	str := timefmt.Format(tt, "%Y/%m/%d %H:%M:%S")
+// 	fmt.Println(str) // 2020/07/24 09:07:29
 
-	str = timefmt.Format(tt, "%a, %d %b %Y %T %z")
-	fmt.Println(str) // Fri, 24 Jul 2020 09:07:29 +0000
-}
+// 	str = timefmt.Format(tt, "%a, %d %b %Y %T %z")
+// 	fmt.Println(str) // Fri, 24 Jul 2020 09:07:29 +0000
+// }
 
 func zone(zone string) time.Time {
 	location := location(zone)
