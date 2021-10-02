@@ -33,6 +33,12 @@ func TestGoTimeFormat(t *testing.T) {
 			StrftimeLayout: "%Y",
 			Expected:       "0001",
 		},
+		{
+			Timestamp:      time.Date(10000, 1, 1, 0, 0, 0, 0, time.UTC),
+			GoLayout:       "2006",
+			StrftimeLayout: "%Y",
+			Expected:       "10000",
+		},
 		// 3 digit year not supported
 		// here first zero is just digit not part of Go time layout
 		{
