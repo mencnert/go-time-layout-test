@@ -47,6 +47,8 @@ t.Format("20060102150405")
 
 In Golang 1.17+ for fraction of seconds (.999 or .000) you can use `,` instead of `.` (,999 or ,000) but output is always with `.`!!!
 
+See https://github.com/golang/go/issues/48746
+
 ## Option 2: strftime implementation
 
 ```
