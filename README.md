@@ -1,9 +1,16 @@
-# Time format
+List of all available layout options for time format and time parse in Golang
 
-## Option 1: Go standard library
+How to work with not standart time format and list of available layout options
+
+How to use `Format` and `Parse` from `time` library and what are all available layout options?
 
 ```
-t.Format("20060102150405")
+time.Now().Format("2006-01-02 15:04:05")
+```
+
+```
+layout := "2006-01-02 15:04:05"
+t, err := time.Parse(layout, "2021-12-31 23:55:55")
 ```
 
 | Unit                                 | Golang Layout | Examples                                           | Note                          |
@@ -45,18 +52,6 @@ t.Format("20060102150405")
 | Time zone                            | -07:00:00     | +00:00:00, +08:00:00, -05:00:00                    |                               |
 | Week                                 |               | 1, 5, 15, 53                                       | year, week := ts.ISOWeek()    |
 
-In Golang 1.17+ for fraction of seconds (.999 or .000) you can use `,` instead of `.` (,999 or ,000) but output is always with `.`!!!
+In Golang 1.17+ for fraction of seconds (.999 or .000) you can use `,` instead of `.` (,999 or ,000) but output is always with `.`!!! See https://github.com/golang/go/issues/48037
 
-See https://github.com/golang/go/issues/48746
-
-## Option 2: strftime implementation
-
-```
-import strftime "github.com/itchyny/timefmt-go"
-```
-
-```
-strftime.Format(t, "%Y%m%d%H%M%S")
-```
-
-https://github.com/itchyny/timefmt-go
+Everything tested here https://github.com/mencnert/go-time-layout-test
