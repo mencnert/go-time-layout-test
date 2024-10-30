@@ -625,7 +625,7 @@ func TestGoTimeFormat(t *testing.T) {
 			Timestamp: time.Date(1, 1, 1, 0, 0, 0, 199000000, time.UTC),
 			GoLayout:  ",000000",
 			// StrftimeLayout: "", // ??
-			Expected: ".199000",
+			Expected: ",199000",
 		},
 		// milliseconds trailing zeros omited
 		{
@@ -648,9 +648,15 @@ func TestGoTimeFormat(t *testing.T) {
 		},
 		{
 			Timestamp: time.Date(1, 1, 1, 0, 0, 0, 199000000, time.UTC),
-			GoLayout:  "01,999999",
+			GoLayout:  "01.999999",
 			// StrftimeLayout: "", // ??
 			Expected: "01.199",
+		},
+		{
+			Timestamp: time.Date(1, 1, 1, 0, 0, 0, 199000000, time.UTC),
+			GoLayout:  "01,999999",
+			// StrftimeLayout: "", // ??
+			Expected: "01,199",
 		},
 		{
 			Timestamp: time.Date(1, 1, 1, 0, 0, 0, 199000000, time.UTC),
